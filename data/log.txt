@@ -1,319 +1,0 @@
-+ [[ blis == blis ]]
-+ LINK_BLIS=true
-+ printf '\033[32mCreating project build directory in: \033[33m./build\033[0m\n'
-[32mCreating project build directory in: [33m./build[0m
-+ [[ true == true ]]
-+ rm -rf ./build/release
-+ cmake_executable=cmake
-+ case "${ID}" in
-+ [[ true == true ]]
-+ install_packages
-+ '[' -z foo ']'
-+ '[' -z foo ']'
-+ library_dependencies_ubuntu=("make" "cmake-curses-gui" "pkg-config" "python2.7" "python3" "python-yaml" "python3-yaml" "llvm-6.0-dev" "rocm-dev" "zlib1g-dev" "wget")
-+ local library_dependencies_ubuntu
-+ library_dependencies_centos=("epel-release" "make" "cmake3" "rpm-build" "python34" "PyYAML" "python3*-PyYAML" "gcc-c++" "llvm7.0-devel" "llvm7.0-static" "rocm-dev" "zlib-devel" "wget")
-+ local library_dependencies_centos
-+ library_dependencies_fedora=("make" "cmake" "rpm-build" "python34" "PyYAML" "python3*-PyYAML" "gcc-c++" "libcxx-devel" "rocm-dev" "zlib-devel" "wget")
-+ local library_dependencies_fedora
-+ library_dependencies_sles=("make" "cmake" "python3-PyYAM" "rocm-dev" "gcc-c++" "libcxxtools9" "rpm-build" "wget")
-+ local library_dependencies_sles
-+ [[ false == true ]]
-+ client_dependencies_ubuntu=("gfortran" "libomp-dev" "libboost-program-options-dev")
-+ local client_dependencies_ubuntu
-+ client_dependencies_centos=("gcc-gfortran" "libgomp" "boost-devel")
-+ local client_dependencies_centos
-+ client_dependencies_fedora=("gcc-gfortran" "libgomp" "boost-devel")
-+ local client_dependencies_fedora
-+ client_dependencies_sles=("gcc-fortran" "libgomp1" "libboost_program_options1_66_0-devel" "boost-devel")
-+ local client_dependencies_sles
-+ case "${ID}" in
-+ elevate_if_not_root apt update
-++ id -u
-+ local uid=0
-+ ((  0  ))
-+ apt update
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Get:1 http://repo.radeon.com/rocm/apt/debian xenial InRelease [1814 B]
-Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
-Get:3 http://repo.radeon.com/rocm/apt/debian xenial/main amd64 Packages [9339 B]
-Get:4 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
-Get:5 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [141 kB]
-Get:6 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [1031 kB]
-Get:7 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
-Get:8 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
-Get:9 http://archive.ubuntu.com/ubuntu xenial/universe Sources [9802 kB]
-Get:10 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.7 kB]
-Get:11 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [595 kB]
-Get:12 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [6280 B]
-Get:13 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
-Get:14 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]
-Get:15 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]
-Get:16 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [176 kB]
-Get:17 http://archive.ubuntu.com/ubuntu xenial-updates/universe Sources [332 kB]
-Get:18 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [1408 kB]
-Get:19 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [13.1 kB]
-Get:20 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [998 kB]
-Get:21 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [19.3 kB]
-Get:22 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [7942 B]
-Get:23 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [8807 B]
-Fetched 26.5 MB in 21s (1223 kB/s)
-Reading package lists...
-Building dependency tree...
-Reading state information...
-46 packages can be upgraded. Run 'apt list --upgradable' to see them.
-+ check_exit_code 0
-+ ((  0 != 0  ))
-+ install_apt_packages make cmake-curses-gui pkg-config python2.7 python3 python-yaml python3-yaml llvm-6.0-dev rocm-dev zlib1g-dev wget
-+ package_dependencies=("$@")
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' make
-++ grep -q ii
-++ echo 0
-+ [[ 0 -ne 0 ]]
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' cmake-curses-gui
-++ grep -q ii
-++ echo 1
-+ [[ 1 -ne 0 ]]
-+ printf '\033[32mInstalling \033[33mcmake-curses-gui\033[32m from distro package manager\033[0m\n'
-[32mInstalling [33mcmake-curses-gui[32m from distro package manager[0m
-+ elevate_if_not_root apt install -y --no-install-recommends cmake-curses-gui
-++ id -u
-+ local uid=0
-+ ((  0  ))
-+ apt install -y --no-install-recommends cmake-curses-gui
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following NEW packages will be installed:
-  cmake-curses-gui
-0 upgraded, 1 newly installed, 0 to remove and 46 not upgraded.
-Need to get 1276 kB of archives.
-After this operation, 4292 kB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 cmake-curses-gui amd64 3.5.1-1ubuntu3 [1276 kB]
-Fetched 1276 kB in 1s (1075 kB/s)
-Selecting previously unselected package cmake-curses-gui.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 45654 files and directories currently installed.)
-Preparing to unpack .../cmake-curses-gui_3.5.1-1ubuntu3_amd64.deb ...
-Unpacking cmake-curses-gui (3.5.1-1ubuntu3) ...
-Setting up cmake-curses-gui (3.5.1-1ubuntu3) ...
-+ check_exit_code 0
-+ ((  0 != 0  ))
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' pkg-config
-++ grep -q ii
-++ echo 0
-+ [[ 0 -ne 0 ]]
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' python2.7
-++ grep -q ii
-++ echo 0
-+ [[ 0 -ne 0 ]]
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' python3
-++ grep -q ii
-++ echo 0
-+ [[ 0 -ne 0 ]]
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' python-yaml
-++ grep -q ii
-++ echo 1
-+ [[ 1 -ne 0 ]]
-+ printf '\033[32mInstalling \033[33mpython-yaml\033[32m from distro package manager\033[0m\n'
-[32mInstalling [33mpython-yaml[32m from distro package manager[0m
-+ elevate_if_not_root apt install -y --no-install-recommends python-yaml
-++ id -u
-+ local uid=0
-+ ((  0  ))
-+ apt install -y --no-install-recommends python-yaml
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following additional packages will be installed:
-  libyaml-0-2
-The following NEW packages will be installed:
-  libyaml-0-2 python-yaml
-0 upgraded, 2 newly installed, 0 to remove and 46 not upgraded.
-Need to get 152 kB of archives.
-After this operation, 618 kB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu xenial/main amd64 libyaml-0-2 amd64 0.1.6-3 [47.6 kB]
-Get:2 http://archive.ubuntu.com/ubuntu xenial/main amd64 python-yaml amd64 3.11-3build1 [105 kB]
-Fetched 152 kB in 0s (170 kB/s)
-Selecting previously unselected package libyaml-0-2:amd64.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 45660 files and directories currently installed.)
-Preparing to unpack .../libyaml-0-2_0.1.6-3_amd64.deb ...
-Unpacking libyaml-0-2:amd64 (0.1.6-3) ...
-Selecting previously unselected package python-yaml.
-Preparing to unpack .../python-yaml_3.11-3build1_amd64.deb ...
-Unpacking python-yaml (3.11-3build1) ...
-Setting up libyaml-0-2:amd64 (0.1.6-3) ...
-Setting up python-yaml (3.11-3build1) ...
-Processing triggers for libc-bin (2.23-0ubuntu9) ...
-+ check_exit_code 0
-+ ((  0 != 0  ))
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' python3-yaml
-++ grep -q ii
-++ echo 1
-+ [[ 1 -ne 0 ]]
-+ printf '\033[32mInstalling \033[33mpython3-yaml\033[32m from distro package manager\033[0m\n'
-[32mInstalling [33mpython3-yaml[32m from distro package manager[0m
-+ elevate_if_not_root apt install -y --no-install-recommends python3-yaml
-++ id -u
-+ local uid=0
-+ ((  0  ))
-+ apt install -y --no-install-recommends python3-yaml
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following NEW packages will be installed:
-  python3-yaml
-0 upgraded, 1 newly installed, 0 to remove and 46 not upgraded.
-Need to get 95.6 kB of archives.
-After this operation, 435 kB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu xenial/main amd64 python3-yaml amd64 3.11-3build1 [95.6 kB]
-Fetched 95.6 kB in 0s (146 kB/s)
-Selecting previously unselected package python3-yaml.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 45697 files and directories currently installed.)
-Preparing to unpack .../python3-yaml_3.11-3build1_amd64.deb ...
-Unpacking python3-yaml (3.11-3build1) ...
-Setting up python3-yaml (3.11-3build1) ...
-+ check_exit_code 0
-+ ((  0 != 0  ))
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' llvm-6.0-dev
-++ grep -q ii
-++ echo 1
-+ [[ 1 -ne 0 ]]
-+ printf '\033[32mInstalling \033[33mllvm-6.0-dev\033[32m from distro package manager\033[0m\n'
-[32mInstalling [33mllvm-6.0-dev[32m from distro package manager[0m
-+ elevate_if_not_root apt install -y --no-install-recommends llvm-6.0-dev
-++ id -u
-+ local uid=0
-+ ((  0  ))
-+ apt install -y --no-install-recommends llvm-6.0-dev
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Reading package lists...
-Building dependency tree...
-Reading state information...
-The following additional packages will be installed:
-  llvm-6.0 llvm-6.0-runtime
-Suggested packages:
-  llvm-6.0-doc
-The following NEW packages will be installed:
-  llvm-6.0 llvm-6.0-dev llvm-6.0-runtime
-0 upgraded, 3 newly installed, 0 to remove and 46 not upgraded.
-Need to get 27.2 MB of archives.
-After this operation, 190 MB of additional disk space will be used.
-Get:1 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 llvm-6.0-runtime amd64 1:6.0-1ubuntu2~16.04.1 [203 kB]
-Get:2 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 llvm-6.0 amd64 1:6.0-1ubuntu2~16.04.1 [3870 kB]
-Get:3 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 llvm-6.0-dev amd64 1:6.0-1ubuntu2~16.04.1 [23.1 MB]
-Fetched 27.2 MB in 23s (1139 kB/s)
-Selecting previously unselected package llvm-6.0-runtime.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 45721 files and directories currently installed.)
-Preparing to unpack .../llvm-6.0-runtime_1%3a6.0-1ubuntu2~16.04.1_amd64.deb ...
-Unpacking llvm-6.0-runtime (1:6.0-1ubuntu2~16.04.1) ...
-Selecting previously unselected package llvm-6.0.
-Preparing to unpack .../llvm-6.0_1%3a6.0-1ubuntu2~16.04.1_amd64.deb ...
-Unpacking llvm-6.0 (1:6.0-1ubuntu2~16.04.1) ...
-Selecting previously unselected package llvm-6.0-dev.
-Preparing to unpack .../llvm-6.0-dev_1%3a6.0-1ubuntu2~16.04.1_amd64.deb ...
-Unpacking llvm-6.0-dev (1:6.0-1ubuntu2~16.04.1) ...
-Processing triggers for libc-bin (2.23-0ubuntu9) ...
-Setting up llvm-6.0-runtime (1:6.0-1ubuntu2~16.04.1) ...
-mount: binfmt_misc is write-protected, mounting read-only
-mount: cannot mount binfmt_misc read-only
-update-binfmts: warning: Couldn't mount the binfmt_misc filesystem on /proc/sys/fs/binfmt_misc.
-Setting up llvm-6.0 (1:6.0-1ubuntu2~16.04.1) ...
-Setting up llvm-6.0-dev (1:6.0-1ubuntu2~16.04.1) ...
-Processing triggers for libc-bin (2.23-0ubuntu9) ...
-+ check_exit_code 0
-+ ((  0 != 0  ))
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' rocm-dev
-++ grep -q ii
-++ echo 0
-+ [[ 0 -ne 0 ]]
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' zlib1g-dev
-++ grep -q ii
-++ echo 0
-+ [[ 0 -ne 0 ]]
-+ for package in '"${package_dependencies[@]}"'
-++ dpkg-query --show '--showformat=${db:Status-Abbrev}\n' wget
-++ grep -q ii
-++ echo 0
-+ [[ 0 -ne 0 ]]
-+ [[ false == true ]]
-+ [[ false == true ]]
-+ [[ blis == blis ]]
-+ [[ ! -f ./build/deps/blis/lib/libblis.so ]]
-+ [[ false == true ]]
-+ export PATH=/opt/rocm/opencl/bin:/opt/rocm/bin:/opt/rocm/hcc/bin:/opt/rocm/hip/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/rocm/bin:/opt/rocm/hip/bin:/opt/rocm/hcc/bin
-+ PATH=/opt/rocm/opencl/bin:/opt/rocm/bin:/opt/rocm/hcc/bin:/opt/rocm/hip/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/rocm/bin:/opt/rocm/hip/bin:/opt/rocm/hcc/bin
-+ pushd .
-/dockerx/rocBLAS /dockerx/rocBLAS
-+ cmake_common_options=
-+ cmake_client_options=
-+ cmake_common_options=' -DROCM_PATH=/opt/rocm -lpthread -DTensile_LOGIC=asm_full -DTensile_ARCHITECTURE=all -DTensile_CODE_OBJECT_VERSION=V2'
-+ [[ true == true ]]
-+ mkdir -p ./build/release/clients
-+ cd ./build/release
-+ cmake_common_options=' -DROCM_PATH=/opt/rocm -lpthread -DTensile_LOGIC=asm_full -DTensile_ARCHITECTURE=all -DTensile_CODE_OBJECT_VERSION=V2 -DCMAKE_BUILD_TYPE=Release'
-+ [[ -n '' ]]
-+ [[ -n '' ]]
-+ [[ -n '' ]]
-+ [[ false == true ]]
-+ tensile_opt=
-+ [[ true == false ]]
-+ [[ false == true ]]
-+ cmake_common_options=' -DROCM_PATH=/opt/rocm -lpthread -DTensile_LOGIC=asm_full -DTensile_ARCHITECTURE=all -DTensile_CODE_OBJECT_VERSION=V2 -DCMAKE_BUILD_TYPE=Release '
-+ [[ false == true ]]
-+ '[false' == true ']'
-./install.sh: line 503: [false: command not found
-+ compiler=hcc
-+ [[ false == true ]]
-+ [[ false == true ]]
-+ case "${ID}" in
-+ [[ false == true ]]
-+ CXX=hcc
-+ cmake -DROCM_PATH=/opt/rocm -lpthread -DTensile_LOGIC=asm_full -DTensile_ARCHITECTURE=all -DTensile_CODE_OBJECT_VERSION=V2 -DCMAKE_BUILD_TYPE=Release -DCPACK_SET_DESTDIR=OFF -DCMAKE_INSTALL_PREFIX=rocblas-install -DCPACK_PACKAGING_INSTALL_PREFIX=/opt/rocm ../..
--- The CXX compiler identification is Clang 10.0.0
--- Check for working CXX compiler: /opt/rocm/bin/hcc
--- Check for working CXX compiler: /opt/rocm/bin/hcc -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Looking for C++ include pthread.h
--- Looking for C++ include pthread.h - found
--- Looking for pthread_create
--- Looking for pthread_create - not found
--- Check if compiler accepts -pthread
--- Check if compiler accepts -pthread - yes
--- Found Threads: TRUE
--- HCC compiler set; ROCm backend selected [ CXX=/opt/rocm-<ver>/bin/hcc cmake ... ]
--- OS detected is ubuntu
-Using base prefix '/usr'
-New python executable in /dockerx/rocBLAS/build/release/virtualenv/bin/python3
-Also creating executable in /dockerx/rocBLAS/build/release/virtualenv/bin/python
-Installing setuptools, pip, wheel...done.
-/dockerx/rocBLAS/build/release/virtualenv/pip install git+https://github.com/ROCmSoftwarePlatform/Tensile.git@d52cdbf1f3ef0e860cb8a7dc2acbd9fdb46260e6
-Collecting git+https://github.com/ROCmSoftwarePlatform/Tensile.git@d52cdbf1f3ef0e860cb8a7dc2acbd9fdb46260e6
-  Cloning https://github.com/ROCmSoftwarePlatform/Tensile.git (to revision d52cdbf1f3ef0e860cb8a7dc2acbd9fdb46260e6) to /tmp/pip-req-build-n8_be7ow
-  Running command git clone -q https://github.com/ROCmSoftwarePlatform/Tensile.git /tmp/pip-req-build-n8_be7ow
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
