@@ -1,6 +1,10 @@
+#!/bin/bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/dockerx/rocBLAS/blis/lib
+DATA_DIR=$(pwd)/data
 
-# ROCBLAS_BENCH=/var/jenkins/workspace/Extended_rocBLAS_develop/*/rocblas/build/release/rocblas-install/rocblas/bin/rocblas-bench
-ROCBLAS_BENCH=/opt/rocm/rocblas/bin/rocblas-bench
+cd /opt/rocm/rocblas/bin # switch to rocblas-bench directory
+while IFS= read -r line; do
+    FILTERED_LINE=$(echo $line | grep -oP "./rocblas-bench.*\d")
+    source <(echo $FILTERED_LINE)
+done <"$DATA_DIR/rocblas_log_bench_bert_512_hist.csv" > "$DATA_DIR/rocblas_log_bench_bert_512_hist_rbench_outpout.txt"
 
-$ROCBLAS_BENCH -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 2048 -k 1024 --alpha 1 --lda 1024 --ldb 1024 --beta 0 --ldc 1024
