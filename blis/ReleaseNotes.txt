@@ -1,30 +1,30 @@
-Copyright 2019-2020, Advanced Micro Devices, Inc.
+Copyright (C) 2019, Advanced Micro Devices, Inc.
 
-Copyright 2014-2020, The University of Texas at Austin
+Copyright (C) 2014, The University of Texas at Austin
 
 AMD BLIS - Release Notes - version 2.0
 --------------------------------------------
 
-BLIS is a portable software framework for instantiating high-performance
-BLAS-like dense linear algebra libraries. The framework was designed to isolate
-essential kernels of computation that, when optimized, enable optimized
-implementations of most of its commonly used and computationally intensive
-operations. Some of these essential kernels have been optimized for the AMD
-EPYC processor family by AMD and others. The optimizations are done for single
-and double precision routines.
+BLIS is a portable software framework for instantiating high-performance 
+BLAS-like dense linear algebra libraries. The framework was designed to isolate 
+essential kernels of computation that, when optimized, enable optimized 
+implementations of most of its commonly used and computationally intensive 
+operations. Some of these essential kernels have been optimized for the AMD 
+EPYC processor family by AMD and others. The optimizations are done for single 
+and double precision routines.  
 
 Highlights of AMD BLIS 2.0
 ---------------------------
--	Improved BLIS performance on AMD Rome based architecture including
+-	Improved BLIS performance on AMD Rome based architecture including 
     Level1 and Level2 BLAS Performances improvements
 -	Framework changes to better handle memory management
 -	Improved DGEMM performance
--	Improved TRSM performance for small problem sizes for AMD Naples and Rome
+-	Improved TRSM performance for small problem sizes for AMD Naples and Rome 
     based architectures
 -	BLIS build now supports both zen and zen2 configurations for AMD Naples and
     ROME architectures respectively
 
-AMD BLIS 2.0 is validated on Ubuntu 18.04 LTS and CentOS 7.6 with GCC 7.3.
+AMD BLIS 2.0 is validated on Ubuntu 18.04 LTS and CentOS 7.6 with GCC 7.3. 
 
-The package contains BLIS Library binaries which includes optimizations for
+The package contains BLIS Library binaries which includes optimizations for 
 the AMD EPYC processor family, header files and examples.

@@ -1,3 +1,6 @@
+# locate packages
+PKG_DIR=rocblas_packages
+
 # install packages
 dpkg -i $PKG_DIR/rocblas-*ubuntu*.deb
 dpkg -i $PKG_DIR/rocblas-clients*.deb

@@ -665,7 +665,7 @@ typedef dcomplex  f77_dcomplex;
 #define BLIS_BITVAL_SINGLE_PREC               0x0
 #define BLIS_BITVAL_DOUBLE_PREC               BLIS_PRECISION_BIT
 #define   BLIS_BITVAL_FLOAT_TYPE              0x0
-#define   BLIS_BITVAL_SCOMPLEX_TYPE           BLIS_DOMAIN_BIT
+#define   BLIS_BITVAL_SCOMPLEX_TYPE           BLIS_DOMAIN_BIT  
 #define   BLIS_BITVAL_DOUBLE_TYPE             BLIS_PRECISION_BIT
 #define   BLIS_BITVAL_DCOMPLEX_TYPE         ( BLIS_DOMAIN_BIT | BLIS_PRECISION_BIT )
 #define   BLIS_BITVAL_INT_TYPE                0x04
@@ -675,10 +675,10 @@ typedef dcomplex  f77_dcomplex;
 #define BLIS_BITVAL_NO_CONJ                   0x0
 #define BLIS_BITVAL_CONJ                      BLIS_CONJ_BIT
 #define BLIS_BITVAL_CONJ_TRANS              ( BLIS_CONJ_BIT | BLIS_TRANS_BIT )
-#define BLIS_BITVAL_ZEROS                     0x0
+#define BLIS_BITVAL_ZEROS                     0x0 
 #define BLIS_BITVAL_UPPER                   ( BLIS_UPPER_BIT | BLIS_DIAG_BIT )
 #define BLIS_BITVAL_LOWER                   ( BLIS_LOWER_BIT | BLIS_DIAG_BIT )
-#define BLIS_BITVAL_DENSE                     BLIS_UPLO_BITS
+#define BLIS_BITVAL_DENSE                     BLIS_UPLO_BITS  
 #define BLIS_BITVAL_NONUNIT_DIAG              0x0
 #define BLIS_BITVAL_UNIT_DIAG                 BLIS_UNIT_DIAG_BIT
 #define BLIS_BITVAL_INVERT_DIAG               BLIS_INVERT_DIAG_BIT
@@ -1299,7 +1299,7 @@ int bli_pthread_barrier_wait( bli_pthread_barrier_t *barrier );
 #include <pthread.h> // skipped
 
 // This branch defines a pthreads-like API, bli_pthreads_*(), and implements it
-// in terms of the corresponding pthreads_*() types, macros, and function calls.
+// in terms of the corresponding pthreads_*() types, macros, and function calls. 
 
 // -- pthread types --
 
@@ -1857,13 +1857,13 @@ typedef enum
 	BLIS_INVALID_COL_STRIDE                    = ( -51),
 	BLIS_INVALID_DIM_STRIDE_COMBINATION        = ( -52),
 
-	// Structure-specific errors
+	// Structure-specific errors    
 	BLIS_EXPECTED_GENERAL_OBJECT               = ( -60),
 	BLIS_EXPECTED_HERMITIAN_OBJECT             = ( -61),
 	BLIS_EXPECTED_SYMMETRIC_OBJECT             = ( -62),
 	BLIS_EXPECTED_TRIANGULAR_OBJECT            = ( -63),
 
-	// Storage-specific errors
+	// Storage-specific errors    
 	BLIS_EXPECTED_UPPER_OR_LOWER_OBJECT        = ( -70),
 
 	// Partitioning-specific errors
@@ -1877,7 +1877,7 @@ typedef enum
 	// Packing-specific errors
 	BLIS_PACK_SCHEMA_NOT_SUPPORTED_FOR_UNPACK  = (-100),
 
-	// Buffer-specific errors
+	// Buffer-specific errors 
 	BLIS_EXPECTED_NONNULL_OBJECT_BUFFER        = (-110),
 
 	// Memory errors
@@ -4998,7 +4998,7 @@ static void bli_prune_unstored_region_bottom_u( doff_t* diagoff, dim_t* m, dim_t
 	*offm_inc = 0;
 
 	// If the diagonal intersects the right side of the matrix,
-	// ignore the area below that intersection.
+	// ignore the area below that intersection. 
 	if ( *m > -(*diagoff) + *n )
 	{
 		*m = -(*diagoff) + *n;
@@ -7113,7 +7113,7 @@ static void bli_obj_reflect_about_diag( obj_t* obj )
 #define bli_zdsets( xr, xi, y )  { (y) = (xr); }
 #define bli_idsets( xr, xi, y )  { (y) = (xr); }
 
-#ifndef BLIS_ENABLE_C99_COMPLEX
+#ifndef BLIS_ENABLE_C99_COMPLEX 
 
 #define bli_scsets( xr, xi, y ) { bli_creal(y) = (xr); bli_cimag(y) = (xi); }
 #define bli_dcsets( xr, xi, y ) { bli_creal(y) = (xr); bli_cimag(y) = (xi); }
@@ -9263,7 +9263,7 @@ static void bli_cscal2ris_mxn
 			);
 		}
 	}
-	else
+	else 
 	{
 		for ( dim_t j = 0; j < n; ++j )
 		for ( dim_t i = 0; i < m; ++i )
@@ -9328,7 +9328,7 @@ static void bli_zscal2ris_mxn
 			);
 		}
 	}
-	else
+	else 
 	{
 		for ( dim_t j = 0; j < n; ++j )
 		for ( dim_t i = 0; i < m; ++i )
@@ -15741,7 +15741,7 @@ static void bli_cscal2ri3s_mxn
 			);
 		}
 	}
-	else
+	else 
 	{
 		for ( dim_t j = 0; j < n; ++j )
 		for ( dim_t i = 0; i < m; ++i )
@@ -15811,7 +15811,7 @@ static void bli_zscal2ri3s_mxn
 			);
 		}
 	}
-	else
+	else 
 	{
 		for ( dim_t j = 0; j < n; ++j )
 		for ( dim_t i = 0; i < m; ++i )
@@ -16050,11 +16050,11 @@ static void bli_cscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
-		else
+		else 
 		{
 			for ( dim_t j = 0; j < n; ++j )
 			for ( dim_t i = 0; i < m; ++i )
@@ -16066,7 +16066,7 @@ static void bli_cscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
@@ -16085,11 +16085,11 @@ static void bli_cscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
-		else
+		else 
 		{
 			for ( dim_t j = 0; j < n; ++j )
 			for ( dim_t i = 0; i < m; ++i )
@@ -16101,12 +16101,12 @@ static void bli_cscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
 	}
-	else
+	else 
 	{
 		if ( bli_is_conj( conjx ) )
 		{
@@ -16120,11 +16120,11 @@ static void bli_cscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
-		else
+		else 
 		{
 			for ( dim_t j = 0; j < n; ++j )
 			for ( dim_t i = 0; i < m; ++i )
@@ -16136,7 +16136,7 @@ static void bli_cscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
@@ -16171,11 +16171,11 @@ static void bli_zscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
-		else
+		else 
 		{
 			for ( dim_t j = 0; j < n; ++j )
 			for ( dim_t i = 0; i < m; ++i )
@@ -16187,7 +16187,7 @@ static void bli_zscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
@@ -16206,11 +16206,11 @@ static void bli_zscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
-		else
+		else 
 		{
 			for ( dim_t j = 0; j < n; ++j )
 			for ( dim_t i = 0; i < m; ++i )
@@ -16222,12 +16222,12 @@ static void bli_zscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
 	}
-	else
+	else 
 	{
 		if ( bli_is_conj( conjx ) )
 		{
@@ -16241,11 +16241,11 @@ static void bli_zscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
-		else
+		else 
 		{
 			for ( dim_t j = 0; j < n; ++j )
 			for ( dim_t i = 0; i < m; ++i )
@@ -16257,7 +16257,7 @@ static void bli_zscal2rihs_mxn
 				(
 				  *alpha,
 				  *chi11,
-				  *psi11_r
+				  *psi11_r 
 				);
 			}
 		}
@@ -17481,7 +17481,7 @@ static void bli_zscal2rihs_mxn
 
 // end bli_scal2j1rs.h
 
-// 1m (1e or 1r)
+// 1m (1e or 1r) 
 // begin bli_invert1ms_mxn_diag.h
 
 
@@ -17691,7 +17691,7 @@ static void bli_cscal21ms_mxn
 {
 	dim_t i, j;
 
-
+	
 	if ( bli_is_1e_packed( schema ) )
 	{
 		scomplex* restrict y_ri = y;
@@ -17708,7 +17708,7 @@ static void bli_cscal21ms_mxn
 				                *(y_ir + i*rs_y + j*cs_y) );
 			}
 		}
-		else
+		else 
 		{
 			for ( j = 0; j < n; ++j )
 			for ( i = 0; i < m; ++i )
@@ -17720,12 +17720,12 @@ static void bli_cscal21ms_mxn
 			}
 		}
 	}
-	else
+	else 
 	{
 		inc_t rs_y2 = rs_y;
 		inc_t cs_y2 = cs_y;
 
-
+		
 		if         ( rs_y2 == 1 )    { cs_y2 *= 2; }
 		else  { rs_y2 *= 2; }
 
@@ -17744,7 +17744,7 @@ static void bli_cscal21ms_mxn
 				                *(y_i + i*rs_y2 + j*cs_y2) );
 			}
 		}
-		else
+		else 
 		{
 			for ( j = 0; j < n; ++j )
 			for ( i = 0; i < m; ++i )
@@ -17771,7 +17771,7 @@ static void bli_zscal21ms_mxn
 {
 	dim_t i, j;
 
-
+	
 	if ( bli_is_1e_packed( schema ) )
 	{
 		dcomplex* restrict y_ri = y;
@@ -17788,7 +17788,7 @@ static void bli_zscal21ms_mxn
 				                *(y_ir + i*rs_y + j*cs_y) );
 			}
 		}
-		else
+		else 
 		{
 			for ( j = 0; j < n; ++j )
 			for ( i = 0; i < m; ++i )
@@ -17800,12 +17800,12 @@ static void bli_zscal21ms_mxn
 			}
 		}
 	}
-	else
+	else 
 	{
 		inc_t rs_y2 = rs_y;
 		inc_t cs_y2 = cs_y;
 
-
+		
 		if         ( rs_y2 == 1 )    { cs_y2 *= 2; }
 		else  { rs_y2 *= 2; }
 
@@ -17824,7 +17824,7 @@ static void bli_zscal21ms_mxn
 				                *(y_i + i*rs_y2 + j*cs_y2) );
 			}
 		}
-		else
+		else 
 		{
 			for ( j = 0; j < n; ++j )
 			for ( i = 0; i < m; ++i )
@@ -18238,7 +18238,7 @@ static void bli_cset1ms_mxn
 	inc_t cs_y2      = cs_y;
 	dim_t i, j;
 
-
+	
 	if ( cs_y == 1 )
 	{
 		bli_swap_incs( &offm_local, &offn_local );
@@ -18247,7 +18247,7 @@ static void bli_cset1ms_mxn
 		bli_swap_incs( &rs_y2, &cs_y2 );
 	}
 
-
+	
 	if ( bli_is_1e_packed( schema ) )
 	{
 		scomplex* restrict y_off_ri = y + (offm_local  )*rs_y1
@@ -18263,9 +18263,9 @@ static void bli_cset1ms_mxn
 			              *(y_off_ir + i*rs_y1 + j*cs_y1) );
 		}
 	}
-	else
+	else 
 	{
-
+		
 		if         ( rs_y2 == 1 )    { cs_y2 *= 2; }
 		else  { rs_y2 *= 2; }
 
@@ -18306,7 +18306,7 @@ static void bli_zset1ms_mxn
 	inc_t cs_y2      = cs_y;
 	dim_t i, j;
 
-
+	
 	if ( cs_y == 1 )
 	{
 		bli_swap_incs( &offm_local, &offn_local );
@@ -18315,7 +18315,7 @@ static void bli_zset1ms_mxn
 		bli_swap_incs( &rs_y2, &cs_y2 );
 	}
 
-
+	
 	if ( bli_is_1e_packed( schema ) )
 	{
 		dcomplex* restrict y_off_ri = y + (offm_local  )*rs_y1
@@ -18331,9 +18331,9 @@ static void bli_zset1ms_mxn
 			              *(y_off_ir + i*rs_y1 + j*cs_y1) );
 		}
 	}
-	else
+	else 
 	{
-
+		
 		if         ( rs_y2 == 1 )    { cs_y2 *= 2; }
 		else  { rs_y2 *= 2; }
 
@@ -18892,25 +18892,25 @@ static void bli_zset1ms_mxn
 #define BLIS_THRCOMM_SINGLE_H
 
 // Define thrcomm_t for situations when multithreading is disabled.
-#ifndef BLIS_ENABLE_MULTITHREADING
+#ifndef BLIS_ENABLE_MULTITHREADING 
 
 //thread communicators may be implementation dependent
 #ifdef BLIS_TREE_BARRIER
 struct barrier_s
-{
+{   
 	int               arity;
 	int               count;
 	struct barrier_s* dad;
 	int               signal;
-};
+};  
 typedef struct barrier_s barrier_t;
 
 struct thrcomm_s
-{
+{   
 	void*       sent_object;
 	dim_t       n_threads;
 	barrier_t** barriers;
-};
+}; 
 #else
 struct thrcomm_s
 {
@@ -18942,20 +18942,20 @@ typedef struct thrcomm_s thrcomm_t;
 // Define thrcomm_t for tree barriers and non-tree barriers.
 #ifdef BLIS_TREE_BARRIER
 struct barrier_s
-{
+{   
 	int               arity;
 	int               count;
 	struct barrier_s* dad;
 	volatile int      signal;
-};
+};  
 typedef struct barrier_s barrier_t;
 
 struct thrcomm_s
-{
+{   
 	void*       sent_object;
 	dim_t       n_threads;
 	barrier_t** barriers;
-};
+}; 
 #else
 struct thrcomm_s
 {
@@ -18997,7 +18997,7 @@ void bli_l3_thread_decorator_thread_check
 #define BLIS_THRCOMM_PTHREADS_H
 
 // Define thrcomm_t for situations when POSIX multithreading is enabled.
-#ifdef BLIS_ENABLE_PTHREADS
+#ifdef BLIS_ENABLE_PTHREADS 
 
 #ifdef BLIS_USE_PTHREAD_BARRIER
 struct thrcomm_s
@@ -19191,7 +19191,7 @@ thrinfo_t* bli_thrinfo_create
        thrcomm_t* ocomm,
        dim_t      ocomm_id,
        dim_t      n_way,
-       dim_t      work_id,
+       dim_t      work_id, 
        bool_t     free_comm,
        bszid_t    bszid,
        thrinfo_t* sub_node
@@ -19203,7 +19203,7 @@ void bli_thrinfo_init
        thrcomm_t* ocomm,
        dim_t      ocomm_id,
        dim_t      n_way,
-       dim_t      work_id,
+       dim_t      work_id, 
        bool_t     free_comm,
        bszid_t    bszid,
        thrinfo_t* sub_node
@@ -19788,7 +19788,7 @@ int bli_pthread_barrier_wait( bli_pthread_barrier_t *barrier );
 #include <pthread.h> // skipped
 
 // This branch defines a pthreads-like API, bli_pthreads_*(), and implements it
-// in terms of the corresponding pthreads_*() types, macros, and function calls.
+// in terms of the corresponding pthreads_*() types, macros, and function calls. 
 
 // -- pthread types --
 
@@ -23463,7 +23463,7 @@ static void bli_mem_clear( mem_t* mem )
 }
 
 
-#endif
+#endif 
 // end bli_mem.h
 // begin bli_part.h
 
@@ -23678,7 +23678,7 @@ static void bli_auxinfo_set_dt_on_output( num_t dt_on_output, auxinfo_t* ai )
 }
 #endif
 
-#endif
+#endif 
 
 // end bli_auxinfo.h
 // begin bli_param_map.h
@@ -24760,13 +24760,13 @@ void bli_l0_xsc_check
 void bli_l0_xxsc_check
      (
        obj_t*  chi,
-       obj_t*  psi
+       obj_t*  psi 
      );
 
 void bli_l0_xx2sc_check
      (
        obj_t*  chi,
-       obj_t*  norm
+       obj_t*  norm 
      );
 // end bli_l0_check.h
 
@@ -25365,14 +25365,14 @@ GENTPROT( xpbyv )
 void bli_l1v_xy_check
      (
        obj_t*  x,
-       obj_t*  y
+       obj_t*  y 
      );
 
 void bli_l1v_axy_check
      (
        obj_t*  alpha,
        obj_t*  x,
-       obj_t*  y
+       obj_t*  y 
      );
 
 void bli_l1v_xby_check
@@ -25396,18 +25396,18 @@ void bli_l1v_dot_check
        obj_t*  x,
        obj_t*  y,
        obj_t*  beta,
-       obj_t*  rho
+       obj_t*  rho 
      );
 
 void bli_l1v_x_check
      (
-       obj_t*  x
+       obj_t*  x 
      );
 
 void bli_l1v_ax_check
      (
        obj_t*  alpha,
-       obj_t*  x
+       obj_t*  x 
      );
 
 void bli_l1v_xi_check
@@ -25649,7 +25649,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( addv )
 GENTPROT( copyv )
@@ -25693,7 +25693,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( axpyv )
 GENTPROT( scal2v )
@@ -25708,7 +25708,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  y, \
        obj_t*  rho  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( dotv )
 
@@ -25724,7 +25724,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  beta, \
        obj_t*  rho  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( dotxv )
 
@@ -25736,7 +25736,7 @@ void PASTEMAC(opname,EX_SUF) \
      ( \
        obj_t*  x  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( invertv )
 
@@ -25749,7 +25749,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  alpha, \
        obj_t*  x  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( scalv )
 GENTPROT( setv )
@@ -25763,7 +25763,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( swapv )
 
@@ -25827,7 +25827,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( addv )
 GENTPROT( copyv )
@@ -25871,7 +25871,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( axpyv )
 GENTPROT( scal2v )
@@ -25886,7 +25886,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  y, \
        obj_t*  rho  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( dotv )
 
@@ -25902,7 +25902,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  beta, \
        obj_t*  rho  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( dotxv )
 
@@ -25914,7 +25914,7 @@ void PASTEMAC(opname,EX_SUF) \
      ( \
        obj_t*  x  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( invertv )
 
@@ -25927,7 +25927,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  alpha, \
        obj_t*  x  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( scalv )
 GENTPROT( setv )
@@ -25941,7 +25941,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( swapv )
 
@@ -26841,25 +26841,25 @@ GENTPROT( xpbyd )
 void bli_l1d_xy_check
      (
        obj_t*  x,
-       obj_t*  y
+       obj_t*  y 
      );
 
 void bli_l1d_axy_check
      (
        obj_t*  alpha,
        obj_t*  x,
-       obj_t*  y
+       obj_t*  y 
      );
 
 void bli_l1d_x_check
      (
-       obj_t*  x
+       obj_t*  x 
      );
 
 void bli_l1d_ax_check
      (
        obj_t*  alpha,
-       obj_t*  x
+       obj_t*  x 
      );
 
 // end bli_l1d_check.h
@@ -26907,7 +26907,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( addd )
 GENTPROT( copyd )
@@ -26923,7 +26923,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( axpyd )
 GENTPROT( scal2d )
@@ -26936,7 +26936,7 @@ void PASTEMAC(opname,EX_SUF) \
      ( \
        obj_t*  x  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( invertd )
 
@@ -26949,7 +26949,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  alpha, \
        obj_t*  x  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( scald )
 GENTPROT( setd )
@@ -27016,7 +27016,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( addd )
 GENTPROT( copyd )
@@ -27032,7 +27032,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  x, \
        obj_t*  y  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( axpyd )
 GENTPROT( scal2d )
@@ -27045,7 +27045,7 @@ void PASTEMAC(opname,EX_SUF) \
      ( \
        obj_t*  x  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( invertd )
 
@@ -27058,7 +27058,7 @@ void PASTEMAC(opname,EX_SUF) \
        obj_t*  alpha, \
        obj_t*  x  \
        BLIS_OAPI_EX_PARAMS  \
-     );
+     ); 
 
 GENTPROT( scald )
 GENTPROT( setd )
@@ -28777,20 +28777,20 @@ GENPROT( xpbym )
 void bli_l1m_xy_check
      (
        obj_t*  x,
-       obj_t*  y
+       obj_t*  y 
      );
 
 void bli_l1m_axy_check
      (
        obj_t*  alpha,
        obj_t*  x,
-       obj_t*  y
+       obj_t*  y 
      );
 
 void bli_l1m_ax_check
      (
        obj_t*  alpha,
-       obj_t*  x
+       obj_t*  x 
      );
 
 // end bli_l1m_check.h
@@ -31007,7 +31007,7 @@ void bli_xxmv_check
        obj_t*  a,
        obj_t*  x,
        obj_t*  beta,
-       obj_t*  y
+       obj_t*  y 
      );
 
 void bli_xxr_check
@@ -31015,7 +31015,7 @@ void bli_xxr_check
        obj_t*  alpha,
        obj_t*  x,
        obj_t*  y,
-       obj_t*  a
+       obj_t*  a 
      );
 // end bli_l2_check.h
 
@@ -34252,10 +34252,10 @@ static void bli_gemm_ind_recast_1m_params
 {
 	obj_t beta;
 
-
+	
 	bli_obj_scalar_detach( c, &beta );
 
-
+	
 	if ( bli_obj_imag_is_zero( &beta ) &&
 	     !bli_is_gen_stored( *rs_c, *cs_c ) )
 	{
@@ -34270,7 +34270,7 @@ static void bli_gemm_ind_recast_1m_params
 			*pd_b *= 1; *ps_b *= 2;
 			*rs_c *= 1; *cs_c *= 2;
 		}
-		else
+		else 
 		{
 			*m    *= 1;
 			*n    *= 2;
@@ -34789,7 +34789,7 @@ void bli_syrk_front
        rntm_t* rntm,
        cntl_t* cntl
      );
-
+	 
 err_t bli_syrk_small
      (
        obj_t*  alpha,
@@ -34972,7 +34972,7 @@ cntl_t* bli_trsm_cntl_create_node
        rntm_t* rntm,
        opid_t  family,
        bszid_t bszid,
-       void*   var_func,
+       void*   var_func, 
        cntl_t* sub_node
      );
 
@@ -39099,7 +39099,7 @@ typedef dcomplex  f77_dcomplex;
 #define BLIS_BITVAL_SINGLE_PREC               0x0
 #define BLIS_BITVAL_DOUBLE_PREC               BLIS_PRECISION_BIT
 #define   BLIS_BITVAL_FLOAT_TYPE              0x0
-#define   BLIS_BITVAL_SCOMPLEX_TYPE           BLIS_DOMAIN_BIT
+#define   BLIS_BITVAL_SCOMPLEX_TYPE           BLIS_DOMAIN_BIT  
 #define   BLIS_BITVAL_DOUBLE_TYPE             BLIS_PRECISION_BIT
 #define   BLIS_BITVAL_DCOMPLEX_TYPE         ( BLIS_DOMAIN_BIT | BLIS_PRECISION_BIT )
 #define   BLIS_BITVAL_INT_TYPE                0x04
@@ -39109,10 +39109,10 @@ typedef dcomplex  f77_dcomplex;
 #define BLIS_BITVAL_NO_CONJ                   0x0
 #define BLIS_BITVAL_CONJ                      BLIS_CONJ_BIT
 #define BLIS_BITVAL_CONJ_TRANS              ( BLIS_CONJ_BIT | BLIS_TRANS_BIT )
-#define BLIS_BITVAL_ZEROS                     0x0
+#define BLIS_BITVAL_ZEROS                     0x0 
 #define BLIS_BITVAL_UPPER                   ( BLIS_UPPER_BIT | BLIS_DIAG_BIT )
 #define BLIS_BITVAL_LOWER                   ( BLIS_LOWER_BIT | BLIS_DIAG_BIT )
-#define BLIS_BITVAL_DENSE                     BLIS_UPLO_BITS
+#define BLIS_BITVAL_DENSE                     BLIS_UPLO_BITS  
 #define BLIS_BITVAL_NONUNIT_DIAG              0x0
 #define BLIS_BITVAL_UNIT_DIAG                 BLIS_UNIT_DIAG_BIT
 #define BLIS_BITVAL_INVERT_DIAG               BLIS_INVERT_DIAG_BIT
@@ -39733,7 +39733,7 @@ int bli_pthread_barrier_wait( bli_pthread_barrier_t *barrier );
 #include <pthread.h> // skipped
 
 // This branch defines a pthreads-like API, bli_pthreads_*(), and implements it
-// in terms of the corresponding pthreads_*() types, macros, and function calls.
+// in terms of the corresponding pthreads_*() types, macros, and function calls. 
 
 // -- pthread types --
 
@@ -40291,13 +40291,13 @@ typedef enum
 	BLIS_INVALID_COL_STRIDE                    = ( -51),
 	BLIS_INVALID_DIM_STRIDE_COMBINATION        = ( -52),
 
-	// Structure-specific errors
+	// Structure-specific errors    
 	BLIS_EXPECTED_GENERAL_OBJECT               = ( -60),
 	BLIS_EXPECTED_HERMITIAN_OBJECT             = ( -61),
 	BLIS_EXPECTED_SYMMETRIC_OBJECT             = ( -62),
 	BLIS_EXPECTED_TRIANGULAR_OBJECT            = ( -63),
 
-	// Storage-specific errors
+	// Storage-specific errors    
 	BLIS_EXPECTED_UPPER_OR_LOWER_OBJECT        = ( -70),
 
 	// Partitioning-specific errors
@@ -40311,7 +40311,7 @@ typedef enum
 	// Packing-specific errors
 	BLIS_PACK_SCHEMA_NOT_SUPPORTED_FOR_UNPACK  = (-100),
 
-	// Buffer-specific errors
+	// Buffer-specific errors 
 	BLIS_EXPECTED_NONNULL_OBJECT_BUFFER        = (-110),
 
 	// Memory errors
