@@ -1,4 +1,5 @@
 #!/bin/bash
+export HIP_VISIBLE_DEVICES=0 # choose gpu
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/dockerx/rocBLAS/blis/lib
 DATA_DIR=$(pwd)/data
 
