@@ -16,4 +16,4 @@ cd /opt/rocm/rocblas/bin # switch to rocblas-bench directory
 while IFS= read -r line; do
     FILTERED_LINE=$(echo $line | grep -oP "./rocblas-bench.*\d")
     source <(echo $FILTERED_LINE)
-done <"$DATA_DIR/rocblas_log_bench_bert_512_hist.csv" >"$DATA_DIR/rocblas_log_bench_bert_512_hist_rbench_outpout.txt"
+done <"$DATA_DIR/rocblas_log_bench_bert_512_hist.csv" >"$DATA_DIR/rocblas_log_bench_bert_512_hist_rbench_output.txt"
