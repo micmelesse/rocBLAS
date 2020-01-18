@@ -12,9 +12,7 @@ wget -O blis.tar.gz https://github.com/amd/blis/releases/download/2.0/aocl-blis-
 tar -xvf blis.tar.gz
 mv amd-blis-mt blis
 rm blis.tar.gz
-cd blis/lib
-ln -s libblis-mt.so libblis.so
-cd ../..
+ln -s blis/lib/libblis-mt.so blis/lib/libblis.so
 
 # install dep libomp
 apt update
