@@ -15,7 +15,7 @@ OUTPUT_PATH="${DATA_PATH%.*}_AMD_GFLOPS.txt"
 
 # set flags
 export HIP_VISIBLE_DEVICES=0 # choose gpu
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/dockerx/rocBLAS/blis/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/dockerx/rocBLAS/blis/lib # add blis to library path
 
 # run rocblas-bench commands
 cd /opt/rocm/rocblas/bin # switch to rocblas-bench directory
