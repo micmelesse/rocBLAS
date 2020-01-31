@@ -19,6 +19,7 @@ DATA_PATH=$(pwd)/data/rocblas_log_bench_bert_512_hist.csv
 # run rocblas-bench commands
 cd /opt/rocm/rocblas/bin # switch to rocblas-bench directory
 
+# execute rocblas commands
 for i in 1 2 3 4 5; do
     OUTPUT_PATH="${DATA_PATH%.*}_AMD_GFLOPS_$i.txt"
     while IFS= read -r line; do
@@ -27,5 +28,4 @@ for i in 1 2 3 4 5; do
             source <(echo $FILTERED_LINE --iters 100)
         fi
     done <"$DATA_PATH" >"$OUTPUT_PATH"
-
 done
