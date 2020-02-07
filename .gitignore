@@ -43,4 +43,4 @@ build*
 \#*\#
 *~
 
-*_GFLOPS.txt
+*_GFLOPS*.txt
