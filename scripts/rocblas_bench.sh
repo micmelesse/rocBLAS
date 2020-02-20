@@ -11,22 +11,22 @@ fi
 
 # set flags
 export HIP_VISIBLE_DEVICES=0                                      # choose gpu
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/dockerx/rocBLAS/blis/lib # add blis to library path
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/dockerx/rocBLAS/blis/lib # add blis to library path
 
 # add data path
-# DATA_PATH=$(pwd)/data/rocblas_log_bench_bert_512_hist.csv
-DATA_PATH=$(pwd)/data/new_gemm_list.csv
+DATA_PATH=$(pwd)/data/rocblas_log_bench_bert_512_hist.csv
+# DATA_PATH=$(pwd)/data/new_gemm_list.csv
 
 # run rocblas-bench commands
 cd /opt/rocm/rocblas/bin # switch to rocblas-bench directory
 
 # execute rocblas commands
-for i in 1 2 3 4 5; do
+for i in 1; do
     OUTPUT_PATH="${DATA_PATH%.*}_AMD_GFLOPS_$i.txt"
     while IFS= read -r line; do
         FILTERED_LINE=$(echo $line | grep -oP "./rocblas-bench.*\d")
         if [ ! -z "$FILTERED_LINE" ]; then
-            source <(echo $FILTERED_LINE --iters 100)
+            source <(echo $FILTERED_LINE --iters 1000)
         fi
     done <"$DATA_PATH" >"$OUTPUT_PATH"
 done

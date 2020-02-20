@@ -1,0 +1,92 @@
+,count,new rocblas_bench_command
+0,144000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 2048 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+1,144000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 3072 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+2,144000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 512 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+3,144000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 2048 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+4,144000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 3072 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+5,144000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 512 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+6,144000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 2048 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+7,144000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 3072 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+8,144000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 512 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+9,72000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA N --transposeB N -m 64 -n 512 -k 512 --alpha 1 --lda 65 --stride_a 32768 --ldb 513  --stride_b 262144 --beta 0 --ldc 65  --stride_c 32768 --batch 16
+10,72000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA N --transposeB N -m 64 -n 512 -k 512 --alpha 1 --lda 65 --stride_a 32768 --ldb 513  --stride_b 262144 --beta 0 --ldc 65  --stride_c 32768 --batch 64
+11,72000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA N --transposeB N -m 64 -n 512 -k 512 --alpha 1 --lda 65 --stride_a 32768 --ldb 513  --stride_b 262144 --beta 0 --ldc 65  --stride_c 32768 --batch 96
+12,72000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA N --transposeB T -m 64 -n 512 -k 512 --alpha 1 --lda 65 --stride_a 32768 --ldb 513  --stride_b 262144 --beta 0 --ldc 65  --stride_c 32768 --batch 16
+13,72000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA N --transposeB T -m 64 -n 512 -k 512 --alpha 1 --lda 65 --stride_a 32768 --ldb 513  --stride_b 262144 --beta 0 --ldc 65  --stride_c 32768 --batch 64
+14,72000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA N --transposeB T -m 64 -n 512 -k 512 --alpha 1 --lda 65 --stride_a 32768 --ldb 513  --stride_b 262144 --beta 0 --ldc 65  --stride_c 32768 --batch 96
+15,72000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA T --transposeB N -m 512 -n 512 -k 64 --alpha 1 --lda 65 --stride_a 32768 --ldb 65  --stride_b 32768 --beta 0 --ldc 513  --stride_c 262144 --batch 64
+16,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 3072 -k 3072 --alpha 1 --lda 1025 --ldb 3073  --beta 0 --ldc 1025 
+17,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 3072 -k 512 --alpha 1 --lda 1025 --ldb 3073  --beta 0 --ldc 1025 
+18,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 3072 -n 1024 -k 2048 --alpha 1 --lda 3073 --ldb 1025  --beta 0 --ldc 3073 
+19,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 3072 -n 1024 -k 3072 --alpha 1 --lda 3073 --ldb 1025  --beta 0 --ldc 3073 
+20,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 3072 -n 1024 -k 512 --alpha 1 --lda 3073 --ldb 1025  --beta 0 --ldc 3073 
+21,36000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 2048 -k 3072 --alpha 1 --lda 3073 --ldb 3073  --beta 0 --ldc 1025 
+22,36000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 3072 -k 3072 --alpha 1 --lda 3073 --ldb 3073  --beta 0 --ldc 1025 
+23,36000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 512 -k 3072 --alpha 1 --lda 3073 --ldb 3073  --beta 0 --ldc 1025 
+24,36000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 3072 -n 2048 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 3073 
+25,36000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 3072 -n 3072 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 3073 
+26,36000,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 3072 -n 512 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 3073 
+27,36000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA T --transposeB N -m 512 -n 512 -k 64 --alpha 0.125 --lda 65 --stride_a 32768 --ldb 65  --stride_b 32768 --beta 1 --ldc 513  --stride_c 262144 --batch 16
+28,36000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA T --transposeB N -m 512 -n 512 -k 64 --alpha 0.125 --lda 65 --stride_a 32768 --ldb 65  --stride_b 32768 --beta 1 --ldc 513  --stride_c 262144 --batch 96
+29,36000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA T --transposeB N -m 512 -n 512 -k 64 --alpha 1 --lda 65 --stride_a 32768 --ldb 65  --stride_b 32768 --beta 0 --ldc 513  --stride_c 262144 --batch 16
+30,36000,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA T --transposeB N -m 512 -n 512 -k 64 --alpha 1 --lda 65 --stride_a 32768 --ldb 65  --stride_b 32768 --beta 0 --ldc 513  --stride_c 262144 --batch 96
+31,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 2048 -k 3072 --alpha 1 --lda 1025 --ldb 3073  --beta 0 --ldc 1025 
+32,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 3072 -k 3072 --alpha 1 --lda 1025 --ldb 3073  --beta 0 --ldc 1025 
+33,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 512 -k 3072 --alpha 1 --lda 1025 --ldb 3073  --beta 0 --ldc 1025 
+34,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 3072 -n 2048 -k 1024 --alpha 1 --lda 3073 --ldb 1025  --beta 0 --ldc 3073 
+35,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 3072 -n 3072 -k 1024 --alpha 1 --lda 3073 --ldb 1025  --beta 0 --ldc 3073 
+36,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 3072 -n 512 -k 1024 --alpha 1 --lda 3073 --ldb 1025  --beta 0 --ldc 3073 
+37,36000,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 3072 -k 2048 --alpha 1 --lda 1025 --ldb 3073  --beta 0 --ldc 1025 
+38,28800,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 4096 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+39,7200,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 4096 -k 3072 --alpha 1 --lda 1025 --ldb 3073  --beta 0 --ldc 1025 
+40,7200,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 3072 -n 4096 -k 1024 --alpha 1 --lda 3073 --ldb 1025  --beta 0 --ldc 3073 
+41,7200,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA N --transposeB N -m 64 -n 512 -k 512 --alpha 1 --lda 65 --stride_a 32768 --ldb 513  --stride_b 262144 --beta 0 --ldc 65  --stride_c 32768 --batch 128
+42,4800,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA T --transposeB N -m 512 -n 512 -k 64 --alpha 0.125 --lda 65 --stride_a 32768 --ldb 65  --stride_b 32768 --beta 1 --ldc 513  --stride_c 262144 --batch 128
+43,2400,./rocblas-bench -f gemm_strided_batched -r f32_r --transposeA T --transposeB N -m 512 -n 512 -k 64 --alpha 1 --lda 65 --stride_a 32768 --ldb 65  --stride_b 32768 --beta 0 --ldc 513  --stride_c 262144 --batch 128
+44,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 80 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+45,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 2 -n 1 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 3 
+46,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 2 -n 4 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 3 
+47,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 2 -n 6 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 3 
+48,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 30522 -n 120 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 30523 
+49,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 30522 -n 20 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 30523 
+50,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 30522 -n 80 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 30523 
+51,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 120 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+52,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 120 -k 30522 --alpha 1 --lda 1025 --ldb 30523  --beta 0 --ldc 1025 
+53,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 1 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+54,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 1 -k 2 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+55,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 2048 -k 2 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+56,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 20 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+57,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 20 -k 30522 --alpha 1 --lda 1025 --ldb 30523  --beta 0 --ldc 1025 
+58,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 3072 -k 2 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+59,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 4 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+60,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 4 -k 2 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+61,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 512 -k 2 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+62,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 6 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+63,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 6 -k 2 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+64,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 80 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+65,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 80 -k 30522 --alpha 1 --lda 1025 --ldb 30523  --beta 0 --ldc 1025 
+66,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 120 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+67,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 1 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+68,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 20 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+69,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 4 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+70,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 6 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+71,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 1024 -k 80 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+72,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 2 -k 1 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+73,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 2 -k 2048 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+74,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 2 -k 3072 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+75,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 2 -k 4 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+76,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 2 -k 512 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+77,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 2 -k 6 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+78,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 30522 -k 120 --alpha 1 --lda 1025 --ldb 30523  --beta 0 --ldc 1025 
+79,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 30522 -k 20 --alpha 1 --lda 1025 --ldb 30523  --beta 0 --ldc 1025 
+80,1500,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB T -m 1024 -n 30522 -k 80 --alpha 1 --lda 1025 --ldb 30523  --beta 0 --ldc 1025 
+81,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 120 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+82,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 1 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+83,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 20 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+84,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 4 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+85,1500,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 1024 -n 6 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+86,300,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 2 -n 8 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 3 
+87,300,./rocblas-bench -f gemm -r f32_r --transposeA T --transposeB N -m 30522 -n 160 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 30523 
+88,300,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 160 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
+89,300,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 4096 -k 2 --alpha 1 --lda 1025 --ldb 3  --beta 0 --ldc 1025 
+90,300,./rocblas-bench -f gemm -r f32_r --transposeA N --transposeB N -m 1024 -n 8 -k 1024 --alpha 1 --lda 1025 --ldb 1025  --beta 0 --ldc 1025 
