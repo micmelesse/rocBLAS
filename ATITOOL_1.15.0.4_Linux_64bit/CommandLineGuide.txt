@@ -1,0 +1,137 @@
+================================
+ATITOOL command line option list
+================================
+
+Please note that not all command line options listed below are applicable to all supported
+ASICs.                                 
+
+ATITOOL clock
+ 
+<options>:
+  -clkstatus        Display BIOS default and current clock values
+  -clklog           Log output to a file called ATICLK.LOG
+  -clksave=fn       Save clock settings to a file 'fn' (file name is
+                    optional where default name is 'clkstat.inf')
+  -clkappend=fn     Append clock settings to a file 'fn' (file name is
+                    optional where default name is 'clkstat.inf')
+  -clkload=fn       Load clock settings from a file 'fn' (file name is
+                    optional where default name is 'clkstat.inf')
+  -eng=<#>          Set eng clock to new value # (MHz)
+  -mem=<#>          Set mem clock to new value # (MHz)
+  -clkrestore       Restore to BIOS default values
+  -incclk=<#>       Increase mem/eng clock to BIOS default + delta # (MHz)
+  -decclk=<#>       Decrease mem/eng clock to BIOS default - delta # (MHz)
+  -incmclk=<#>      Increase mem clock to current clk + delta # (MHz)
+  -incsclk=<#>      Increase eng clock to current clk + delta # (MHz)
+  -incmclkpct=<#>   Increase mem clock by # percent of current clk (MHz)
+  -incsclkpct=<#>   Increase eng clock by # percent of current clk (MHz)
+  -decmclk=<#>      Decrease mem clock to current clk - delta # (MHz)
+  -decsclk=<#>      Decrease eng clock to current clk - delta # (MHz)
+  -favordclk        Favor DCLK over VCLK
+  -favorvclk        Favor VCLK over DCLK
+  -clkcounter       Display clock counters
+  -dyngfx=<on/off>  Enable/Disable dynamic gfx clock gating
+  -test:memeq=<#>   Is current memory clock = #?
+  -test:memgt=<#>   Is current memory clock > #?
+  -test:memlt=<#>   Is current memory clock < #?
+  -test:engeq=<#>   Is current engine clock = #?
+  -test:enggt=<#>   Is current engine clock > #?
+  -test:englt=<#>   Is current engine clock < #?
+  -dclk=<#>         Set UVD DCLK to new value # (MHz)
+  -vclk=<#>         Set UVD VCLK to new value # (MHz)
+  -maxvco=<#>       Specify UPLL VCO limit (MHz) for DCLK/VCLK
+  -uvdclkstatus=<#> Change UVD clock gating status : On,Off
+  -accel3don        Turn on 3D Acceleration mode
+  -accel3doff       Turn off 3D Acceleration mode
+  -skipmemparam     Skip memory parameter changes
+  -skipmempll       Skip memory PLL reprogramming
+  -gteq             Set mem/eng clock to a value >= the value specified
+                    For use with insclkpct/incmclkpct
+  -lclk=<#>         Set LCLK to a new value # (Mhz)
+  -dispclk=<#>      Set DISPLCLK to a new value # (Mhz)
+  -sclkdiv=<#>      Set SCLK DFS divider (Llano only)
+  -lclkdiv=<#>      Set LCLK DFS divider (Llano only)
+  -vclkdiv=<#>      Set VCLK DFS divider (Llano only)
+  -dclkdiv=<#>      Set DCLK DFS divider (Llano only)
+  -dispclkdiv=<#>   Set DISPCLK DFS divider (Llano only)
+  -refclk=<#>       Set REFCLK to a new value # (Mhz)
+  -refclkoverride   Enable adjustment of REFCLK, if available, to achieve more accurate clock changes
+
+ATITOOL vctf
+ 
+<options>:
+  -vctfstatus              Display current voltage/current/thermal/fan-speed
+  -vddc=<#>                Set VDDC to # (V)
+  -vddci=<#>               Set VDDCI to # (V)
+  -mvddc=<#>               Set MVDDC to # (V)
+  -mvddq=<#>               Set MVDDQ to # (V)
+  -vddnb=<#>               Set VDDNB to # (V)
+  -avgcur                  Display average current value to ASIC
+  -pkcur                   Display peak current value to ASIC
+  -test:<voltsrc>eq=<#>    Test if <voltsrc> == # where <voltsrc> = vddc,vddci,mvddc,mvddq,vddnb
+  -test:<voltsrc>qt=<#>    Test if <voltsrc> > # where <voltsrc> = vddc,vddci,mvddc,mvddq,vddnb
+  -test:<voltsrc>lt=<#>    Test if <voltsrc> < # where <voltsrc> = vddc,vddci,mvddc,mvddq,vddnb
+  -temp                    Display ASIC temperature
+  -fanrpm                  Display current fan speed
+  -fancontrol=<#>          Set fan speed to # (0=Low Speed;1=High Speed;2=auto)
+  -i2cr:$1,$2,$3,$4        Read from I2C device at address $2 on I2C line $1
+                           reg offset of $3 and length of $4
+  -i2cw:$1,$2,$3,$4        Write to I2C device at address $2 on I2C line $1
+                           reg offset of $3 with values listed in $4
+ 
+                           I2C lines supported :
+                           0 - DDC1
+                           1 - DDC2
+                           2 - DDC3
+                           3 - DDC4
+                           4 - HW I2C (MM I2C or VIP I2C)
+                           5 - DDC5
+                           6 - DDC6
+                           7 - DDC7
+                           8 - DDCVGA
+ 
+  -getvoltagelist=$1               Where $1 = vddc, vddci, mvddc, mvddq
+  -use_atombios_voltage_control    Force ATOMBIOS method to get/set voltage
+  -use_hw_voltage_control          Force hardware method to get/set voltage
+  -use_pp_voltage_control          Force powerplay method to get/set voltage
+  -force_target_voltage            Force the given target voltage setting - bypass arbitration logic if possible
+ 
+  -vddcsave=fn      Save vddc settings to a file 'fn' (file name is
+                    optional where default name is 'vddcstat.inf')
+  -vddcload=fn      Load vddc settings from a file 'fn' (file name is
+                    optional where default name is 'vddcstat.inf')
+  -vddnb0=<#>       Set SclkVIDLevel 0 to # (V)
+  -vddnb1=<#>       Set SclkVIDLevel 0 to # (V)
+  -vddnb2=<#>       Set SclkVIDLevel 0 to # (V)
+  -vddnb3=<#>       Set SclkVIDLevel 0 to # (V)
+  -vddnb_cnb=<#>    Set VDDNB request from CNB to # (V)
+  -vddnb_vid=<#>    Force VID (will trigger VDDNB change)
+
+ATITOOL powerplay
+ 
+<options>:
+  -ppstatus         Display current PowerPlay mode
+  -pprestore        Restore to BIOS default PowerPlay mode
+  -accel3d          Set 3D Acceleration PowerPlay mode
+  -pplist           List all supported PowerPlay modes
+  -pplist=short     List all supported PowerPlay modes with short summary
+  -pplist=full      List all supported PowerPlay modes with full details
+  -ppmode=#         Set to a PowerPlay mode # (or bat|perf|uvd) from the list
+  -ppsetclk=#,$     Set clocks and VDDC to a PowerPlay mode # (or bat|perf|uvd), DPM state $
+  -pplog            Log output to a file ATIPP.LOG
+  -ppdpmstatus      Display current DPM status
+  -ppdpmforce=#     Force DPM state (0-LOW,1=MED,2=HIGH)
+  -ppdpmperf=[on|off]  Turn on/off CG performance monitors
+  -ppdpmperfperiod=#   Set CG performance monitor period (sec)
+  -ppdpmperfstatus     Display CG performance monitors
+  -ppdumptable      Dump powerplay table to pptable.txt for override
+  -ppoverride       Override powerplay table with table in pptable.txt
+  -ppsmcucode=<filename> Load external .s19 SMC ucode
+  -ppnopersist      Do not use persistent memory storage in powerplay (debug)
+  -ppsave=fn        Save PowerPlay settings to a file 'fn' (file name is
+                    optional where default name is 'ppstat.inf')
+  -ppappend=fn      Append PowerPlay settings to a file 'fn' (file name is
+                    optional where default name is 'ppstat.inf')
+  -ppload=fn        Load PowerPlay mode from a file 'fn' (file name is
+                    optional where default name is 'ppstat.inf')
+

@@ -1,0 +1,185 @@
+####################################################################################################
+#
+#   EFUSE:
+#
+#       It displays/checks EFuse values specified by either user provided config files or  
+#       a (range of) index value(s).
+#       
+#
+#   Options:
+#       
+#       "-efuse_file"        -> this option will check each line in "efuseid.cfg"
+#       "-efuse_idxfile=N"   -> this option will check each line in "efuseidx.cfg"
+#       "-efuse_soe"         -> add this option to either of the abov two  will stop
+#                               on the first error
+#       "-efuse_idx=N1(,N2)" -> this optoin will display eFuse value 
+#                               at index value N1 or from N1 to N2
+#
+#   Output:
+#
+#       It will return 0 for a pass and 1 for a fail for the last line of the config
+#       file.  Also the line-by-line result will be shown on the screen.
+#
+#
+#   Format:
+#
+#       In case of "efuse.cfg"
+#      
+#           Access_Type;RegOffset1;RegOffset2;RegOffset3;Mask;Expected_Value;
+#
+#       In case of "efuseidx.cfg"
+#           
+#           EFuse_Name,Start_Index,End_Index,PreProd_Value,Prod_Value,Owner(*)
+#
+#           or
+# 
+#           EFuse_name,Start_Index,End_Index,Pre/Production_Value,(**)
+#
+#       * "efuseidx.cfg" is basically "golden.txt" created from "Golden EFuse" section
+#         of "Golden Register Settings Database" website(http:\\storeiis2\GoldenSettings).
+#         Be sure to comment out the very first line of "golden.txt" before or after
+#         renaming it to "efuseidx.cfg".  For checking Preproduction value, use "-efuse_idxfile=1"
+#         and for Production values, "-efuse_idxfile=0".
+#         This is applicable to ASICs prior to Southern Island family.
+#
+#       ** Starting with Southern Island, Efuse snapshots are to be obtained from a new server(
+#          (http://vbios/gdb).  User must click on "Menu" button and then click on "EFUSE Snapshot"
+#          button to go to the right site where you pick the desired ASIC and Preproduction or 
+#          Production snapshot.  Then copy the content and save to a file named "efuseidx.cfg".
+#          Since the move to the new Golden Database server, Preproduction and Production values
+#          are no longer included in a single file.  User must make sure to pick the desired one.
+#          Due to this change, user of the feature, "-efuse_idxfile=N", can set N to either 0 or 1,
+#          however note that the value must still be set to one of them.
+#          
+#
+#
+#   Field Definitions:
+#  
+#       In case of "efuse.cfg"
+#           Access_Type
+#               -0: Direct Register Access
+#               -1: Indirect Register Access
+# 
+#           RegOffset1
+#               -32-bit memory-mapped register offset
+#               -This offset is a DWORD offset
+#
+#           RegOffset2
+#               -Ignored when Access_Type = 0
+#               -Index value when Access_Type = 1
+#
+#           RegOffset3
+#               -Ignored when Access_Type = 0
+#               -Register offset to read the 32-bit data from 
+#                when Access_Type = 1
+#
+#           Mask
+#               -32-bit value mask 
+#               -eg) 0x00000C00[bit 10-11] or 0xFFFFFFFF[bit 0-31]
+#
+#           Expected_Value
+#               -The expected value
+#               -can be 1-bit wide to 32-bit wide
+#
+#       In case of "efuseidx.cfg"
+#           EFuse_Name
+#           
+#           Start_Index
+#
+#           End_Index
+#
+#           Preprod_Value
+#
+#           Prod_Value
+#           
+#           Owner
+#
+#
+#   Rules:
+#       1. File name must be "efuse.cfg" or "efuseidx.cfg".
+#       2. There are exactly 6 fields per line.
+#       3. Each field must end with a semicolon(;) or a comman(,)
+#       4. Do not leave blank lines between lines.
+#       5. Comments is preceded by a number sign(#).
+#
+####################################################################################################
+
+####################################################################################################
+# "efuse.cfg" Example                                                                              #
+####################################################################################################
+
+#D1_AVP_BCKN_OVL:D1OVL_VBLANK[0]
+0;197e;-1;-1;00000001;00000001;
+0;197e;-1;-1;00000001;0;
+0;197e;-1;-1;00000010;0;
+#RCU_CC_BIF_EFUSE0[31:1]
+1;0x40;0x20;0x41;0xFFFFFFFE;0x2400;
+#RCU_CC_BIF_AZALIZ_ID:AZALIZ_ID[6:3]
+1;0x40;0x22;0x41;0x00000078;7;
+#RCU_CC_BIF_AZALIZ_ID:AZALIZ_ID[6:3]
+1;0x40;0x22;0x41;0x00000078;6;
+#RCU_ROM_MSC_SSTRAPS0:DEVICE_ID[15:0]
+1;0x40;0x1;0x41;0x0000FFFF;0x94B3;
+#RCU_ROM_MSC_STRAPS17[11]
+1;0x40;0x211;0x41;0x00000800;0x1;
+#RCU_ROM_MSC_STRAPS18[11]
+1;0x40;0x212;0x41;0x00008000;0x1;
+#RCU_ROM_MSC_STRAPS20[31]
+1;0x40;0x214;0x41;0x80000000;0x1;
+#RCU_ROM_MSC_STRAPS22[2,4,12,24,26]
+1;0x40;0x216;0x41;0x00000004;0x1;
+1;0x40;0x216;0x41;0x00000010;0x1;
+1;0x40;0x216;0x41;0x00001000;0x1;
+1;0x40;0x216;0x41;0x01000000;0x1;
+1;0x40;0x216;0x41;0x04000000;0x1;
+
+
+
+###################################################################################################
+# "efuseidx.cfg" Example                                                                          #
+###################################################################################################
+#Upto Northern Island
+#EFuse Name, Starting Index, Ending Index, Pre-Production Value, Produciton Value, Owner
+GLB_JTAG_RD_DIS,0,0,0,,Patel Vinay
+GLB_JTAG_WR_DIS,1,1,0,,Patel Vinay
+HDCP_JTAG_RD_DIS,2,2,1,,Patel Vinay
+HDCP_JTAG_WR_DIS,3,3,1,,Patel Vinay
+DRM_UVD_JTAG_RD_DIS,4,4,1,,Patel Vinay
+DRM_UVD_JTAG_WR_DIS,5,5,1,,Patel Vinay
+ROM_DIS,6,6,0,,Patel Vinay
+DEBUG_DIS,7,7,0,,Patel Vinay
+CC_WRITE_DIS,8,8,1,,Patel Vinay
+MEM_HARDREP_EN,9,9,TBD,,Patel Vinay
+CTF_DISABLE,10,10,0,,Kociuk Nick
+CTF_PAD_SELECT,11,11,0,,Kociuk Nick
+SPARE12,12,12,0,,Kociuk Nick
+FDO_LINEAR_EN,13,13,0,,Patel Vinay
+DC_WRITE_DIS,14,14,1,,Patel Vinay
+FDO_INIT_SPINUP_TIME,15,17,010,,Patel Vinay
+FDO_INIT_SPINUP_DUTY,18,20,010,,Patel Vinay
+FDO_INIT_STATIC_DUTY,21,23,010,,Patel Vinay
+SPARE31_24,24,31,0,,Kociuk Nick
+
+#Southern Island and going forward
+#EFuse Name, Starting Index, Ending Index, Pre/Production Value,
+DT_HD1P_RM,199,200,00,
+STRAP_BIF_E2E_PREFIX_EN_A,1089,1089,0,
+RB_BACKEND_DISABLE_SE1_SH1,168,171,FT,
+STRAP_BIF_PASID_PREFIX_SUPPORTED,1091,1091,0,
+STRAP_RX_CFG_LEQ_LOOP_GAIN,773,774,00,
+STRAP_BIF_RX_IGNORE_MSG_ERR,466,466,0,
+STRAP_BIF_FIRST_RCVD_ERR_LOG,507,507,0,
+GFX_RF2P_RMEN,225,225,0,
+STRAP_BIF_GEN2_EN_A,1104,1104,1,
+FDO_INIT_SPINUP_DUTY,18,20,100,
+STRAP_BIF_F1_CPL_ABORT_ERR_EN,505,505,0,
+STRAP_BIF_F0_PAGE_REQ_EN,1098,1098,0,
+STRAP_BIF_F0_MINOR_REV_ID,681,684,0000,
+CMON_ADC_GAIN_ADJ,80,83,FT,
+GFX_PDP_RM,220,221,00,
+STRAP_BIF_RX_IGNORE_CFG_UR,473,473,0,
+STRAP_BIF_PARALLEL_LBACK_EN,564,564,0,
+STRAP_BG_CFG_LC_REG_VREF0_SEL,393,394,00,
+STRAP_BIF_F0_SUBSYS_ID,479,494,0000000000000000,
+
+
