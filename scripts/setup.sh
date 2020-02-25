@@ -2,7 +2,9 @@ set -e
 
 # install libomp
 apt update
-apt -y install libomp-dev
+apt -y install libomp-dev \
+    gfortran \
+    libboost-program-options-dev
 
 # # install libbliss
 # rm -rf blis
