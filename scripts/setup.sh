@@ -1,6 +1,6 @@
 set -e
 
-# install libomp
+# install dependencies
 apt update
 apt -y install libomp-dev \
     gfortran \
@@ -20,7 +20,8 @@ apt -y install libomp-dev \
 PKG_DIR=rocblas_packages
 
 # install packages
-dpkg -i $PKG_DIR/rocblas-2.*ubuntu*.deb
+# dpkg -i $PKG_DIR/rocblas-2.*ubuntu*.deb
+dpkg -i $PKG_DIR/bert-mi60-tuned.deb
 dpkg -i $PKG_DIR/rocblas-clients*.deb
 
 # cp -r /var/jenkins/workspace/Extended_rocBLAS_develop/*/rocblas/build/release/rocblas-install/rocblas/bin /opt/rocm/rocblas
