@@ -14,8 +14,11 @@ export HIP_VISIBLE_DEVICES=0                                      # choose gpu
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/dockerx/rocBLAS/blis/lib # add blis to library path
 
 # add data path
-DATA_PATH=$(pwd)/data/rocblas_log_bench_bert_512_hist.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_bert_512_hist.csv
 # DATA_PATH=$(pwd)/data/new_gemm_list.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba1_seq512_count.csv
+DATA_PATH=$(pwd)/data/rocblas_log_bench_ba4_seq512_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba6_seq512_count.csv
 
 # run rocblas-bench commands
 cd /opt/rocm/rocblas/bin # switch to rocblas-bench directory
