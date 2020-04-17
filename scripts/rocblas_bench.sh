@@ -17,8 +17,16 @@ export HIP_VISIBLE_DEVICES=0                                      # choose gpu
 # DATA_PATH=$(pwd)/data/rocblas_log_bench_bert_512_hist.csv
 # DATA_PATH=$(pwd)/data/new_gemm_list.csv
 # DATA_PATH=$(pwd)/data/rocblas_log_bench_ba1_seq512_count.csv
-DATA_PATH=$(pwd)/data/rocblas_log_bench_ba4_seq512_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba4_seq512_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba5_seq512_count.csv
 # DATA_PATH=$(pwd)/data/rocblas_log_bench_ba6_seq512_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba8_seq128_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba9_seq128_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba10_seq128_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba39_seq128_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba40_seq128_count.csv
+# DATA_PATH=$(pwd)/data/rocblas_log_bench_ba41_seq128_count.csv
+
 
 # run rocblas-bench commands
 cd /opt/rocm/rocblas/bin # switch to rocblas-bench directory
